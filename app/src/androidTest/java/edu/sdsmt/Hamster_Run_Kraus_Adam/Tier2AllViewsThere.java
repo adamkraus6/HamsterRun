@@ -93,7 +93,7 @@ public class Tier2AllViewsThere {
             resetBtnAtom.set(act.findViewById(R.id.resetBtn));
             upBtnAtom.set(act.findViewById(R.id.upBtn));
             downBtnAtom.set(act.findViewById(R.id.downBtn));
-            leftBtnAtom.set(act.findViewById(R.id.leftbtn));
+            leftBtnAtom.set(act.findViewById(R.id.leftBtn));
             rightBtnAtom.set(act.findViewById(R.id.rightBtn));
 
             zoomAtom.set(act.findViewById(R.id.zoom));
@@ -213,7 +213,7 @@ public class Tier2AllViewsThere {
         assertEquals(1, g.getPlayerLocation().x );
         assertEquals(0, g.getPlayerLocation().y);
 
-        onView(withId(R.id.leftbtn)).perform(click());
+        onView(withId(R.id.leftBtn)).perform(click());
         assertEquals(2, g.getMoves());
         assertEquals( START_ENERGY-g.getMoves() * MOVE_ENERGY, g.getEnergy());
         assertEquals(g.getPlayerLocation().x, 0);
@@ -238,7 +238,7 @@ public class Tier2AllViewsThere {
         assertEquals(g.getPlayerLocation().x, 0);
         assertEquals(g.getPlayerLocation().y, 0);
 
-        onView(withId(R.id.leftbtn)).perform(click());
+        onView(withId(R.id.leftBtn)).perform(click());
         assertEquals(4, g.getMoves());
         assertEquals( START_ENERGY-g.getMoves() * MOVE_ENERGY, g.getEnergy());
         assertEquals(g.getPlayerLocation().x, 0);
@@ -298,7 +298,7 @@ public class Tier2AllViewsThere {
     public void reset_correct() {
         init();
         onView(withId(R.id.rightBtn)).perform(click());
-        onView(withId(R.id.leftbtn)).perform(click());
+        onView(withId(R.id.leftBtn)).perform(click());
         onView(withId(R.id.downBtn)).perform(click());
         onView(withId(R.id.downBtn)).perform(click());
         onView(withId(R.id.downBtn)).perform(click());
