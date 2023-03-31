@@ -10,4 +10,9 @@ public class EndedGame implements State {
     public void startTask() {
 
     }
+
+    @Override
+    public String getStateName() {
+        return null;
+    }
 }

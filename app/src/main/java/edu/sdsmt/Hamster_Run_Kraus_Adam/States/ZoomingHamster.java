@@ -10,4 +10,9 @@ public class ZoomingHamster implements State {
     public void startTask() {
 
     }
+
+    @Override
+    public String getStateName() {
+        return null;
+    }
 }
