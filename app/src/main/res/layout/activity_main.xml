@@ -10,7 +10,7 @@
         android:id="@+id/leftBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Left"
+        android:text="@string/left"
         app:layout_constraintBottom_toTopOf="@+id/downBtn"
         app:layout_constraintEnd_toStartOf="@+id/downBtn" />
 
@@ -18,7 +18,7 @@
         android:id="@+id/downBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Down"
+        android:text="@string/down"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/rightBtn" />
 
@@ -26,7 +26,7 @@
         android:id="@+id/resetBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset"
+        android:text="@string/reset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Eat"
+        android:text="@string/eat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Zoom"
+        android:text="@string/zoom"
         app:layout_constraintBottom_toTopOf="@+id/eatBtn"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,7 +52,7 @@
         android:id="@+id/upBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Up"
+        android:text="@string/up"
         app:layout_constraintBottom_toTopOf="@+id/leftBtn"
         app:layout_constraintEnd_toStartOf="@+id/rightBtn" />
 
@@ -60,7 +60,7 @@
         android:id="@+id/rightBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Right"
+        android:text="@string/right"
         app:layout_constraintBottom_toTopOf="@+id/downBtn"
         app:layout_constraintEnd_toEndOf="parent" />
 
