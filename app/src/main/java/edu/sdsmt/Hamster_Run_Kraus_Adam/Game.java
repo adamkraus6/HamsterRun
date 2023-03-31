@@ -1,5 +1,7 @@
 package edu.sdsmt.Hamster_Run_Kraus_Adam;
 
+import edu.sdsmt.Hamster_Run_Kraus_Adam.Areas.Tube;
+
 public class Game {
     private int moves;
     private int energy;
@@ -7,10 +9,11 @@ public class Game {
     private int stores;
     private int zoom;
     private Position pos;
-    // need 5x5 grid
+    private Tube[][] gameArea;
 
     public Game() {
         reset();
+        setGameArea();
     }
 
     public void reset() {
@@ -20,6 +23,10 @@ public class Game {
         stores = 0;
         zoom = 0;
         pos = new Position();
+    }
+
+    public void setGameArea() {
+        gameArea = new Tube[5][5];
     }
 
     public int getZoomsLeft() {
