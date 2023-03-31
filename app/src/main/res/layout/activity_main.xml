@@ -8,16 +8,18 @@
 
     <Button
         android:id="@+id/leftBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:onClick="moveLeft"
         android:text="@string/left"
         app:layout_constraintBottom_toTopOf="@+id/downBtn"
         app:layout_constraintEnd_toStartOf="@+id/downBtn" />
 
     <Button
         android:id="@+id/downBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:onClick="moveDown"
         android:text="@string/down"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/rightBtn" />
@@ -50,16 +52,18 @@
 
     <Button
         android:id="@+id/upBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:onClick="moveUp"
         android:text="@string/up"
         app:layout_constraintBottom_toTopOf="@+id/leftBtn"
         app:layout_constraintEnd_toStartOf="@+id/rightBtn" />
 
     <Button
         android:id="@+id/rightBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:onClick="moveRight"
         android:text="@string/right"
         app:layout_constraintBottom_toTopOf="@+id/downBtn"
         app:layout_constraintEnd_toEndOf="parent" />

@@ -1,4 +1,11 @@
 package edu.sdsmt.Hamster_Run_Kraus_Adam;
 
-public class GameView {
+import android.content.Context;
+import android.view.View;
+
+public class GameView extends View {
+
+    public GameView(Context context) {
+        super(context);
+    }
 }
