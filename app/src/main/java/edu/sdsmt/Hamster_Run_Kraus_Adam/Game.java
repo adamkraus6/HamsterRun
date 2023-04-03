@@ -130,30 +130,10 @@ public class Game {
             lost = true;
         moves++;
 
-        // NOTE: this doesn't happen during play, but occurs in some tier 1 tests
-        // non adjacent move
-        if(dx != 0 && dy != 0)
-        {
-            pos.x = nx;
-            pos.y = ny;
-            gameArea[nx][ny].enter(this);
-            return;
-        }
-
-        // move horizontally
-        for(int x = ox; x != nx; x += Integer.compare(nx, x))
-        {
-            gameArea[x][pos.y].enter(this);
-        }
         pos.x = nx;
-
-        // move vertically
-        for(int y = oy; y != ny; y += Integer.compare(ny, y))
-        {
-            gameArea[pos.x][y].enter(this);
-        }
         pos.y = ny;
-//        gameArea[pos.x][pos.y].enter(this);
+
+        gameArea[pos.x][pos.y].enter(this);
     }
 
     public void pickup() {
