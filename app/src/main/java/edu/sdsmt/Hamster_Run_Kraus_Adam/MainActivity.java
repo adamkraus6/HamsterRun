@@ -43,4 +43,8 @@ public class MainActivity extends AppCompatActivity {
     public void moveRight(View v) {
         g.move(1, 0);
     }
+
+    public void eat(View v) {
+        g.eat();
+    }
 }
