@@ -62,10 +62,10 @@ public class Game {
         // food x10 at (3, 0)
         gameArea[3][0] = new Food(10);
 
-        // bars at (2, 0), (3, 2), (4, 2), (2, 4)
+        // bars at (2, 0), (3, 3), (4, 3), (2, 4)
         gameArea[2][0] = new Bars();
-        gameArea[3][2] = new Bars();
-        gameArea[4][2] = new Bars();
+        gameArea[3][3] = new Bars();
+        gameArea[4][3] = new Bars();
         gameArea[2][4] = new Bars();
 
         // home at (4, 4)

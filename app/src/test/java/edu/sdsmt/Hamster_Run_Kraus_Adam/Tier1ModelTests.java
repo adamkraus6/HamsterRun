@@ -238,7 +238,7 @@ public class Tier1ModelTests {
 
         //check food before and after
         assertEquals(FOOD_PICK_AMOUNT*2, g.getFood());
-        g.move(2, 1);
+        g.move(3, 0);
         assertEquals(BARS_LIMIT, g.getFood());
 
     }
