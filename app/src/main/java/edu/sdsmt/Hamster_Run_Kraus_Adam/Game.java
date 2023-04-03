@@ -62,10 +62,10 @@ public class Game {
         // food x10 at (3, 0)
         gameArea[3][0] = new Food(10);
 
-        // bars at (2, 0), (3, 2), (3, 4), (2, 4)
+        // bars at (2, 0), (3, 2), (4, 2), (2, 4)
         gameArea[2][0] = new Bars();
         gameArea[3][2] = new Bars();
-        gameArea[3][4] = new Bars();
+        gameArea[4][2] = new Bars();
         gameArea[2][4] = new Bars();
 
         // home at (4, 4)
@@ -116,8 +116,10 @@ public class Game {
     }
 
     public void move(int dx, int dy) {
-        // get new position
-        int nx = pos.x + dx, ny = pos.y + dy;
+        // original position
+        int ox = pos.x, oy = pos.y;
+        // new position
+        int nx = ox + dx, ny = oy + dy;
 
         // moves outside of game area
         if(nx < 0 || nx > 4 || ny < 0 || ny > 4) return;
@@ -128,10 +130,30 @@ public class Game {
             lost = true;
         moves++;
 
-        pos.x = nx;
-        pos.y = ny;
+        // NOTE: this doesn't happen during play, but occurs in some tier 1 tests
+        // non adjacent move
+        if(dx != 0 && dy != 0)
+        {
+            pos.x = nx;
+            pos.y = ny;
+            gameArea[nx][ny].enter(this);
+            return;
+        }
 
-        gameArea[pos.x][pos.y].enter(this);
+        // move horizontally
+        for(int x = ox; x != nx; x += Integer.compare(nx, x))
+        {
+            gameArea[x][pos.y].enter(this);
+        }
+        pos.x = nx;
+
+        // move vertically
+        for(int y = oy; y != ny; y += Integer.compare(ny, y))
+        {
+            gameArea[pos.x][y].enter(this);
+        }
+        pos.y = ny;
+//        gameArea[pos.x][pos.y].enter(this);
     }
 
     public void pickup() {
