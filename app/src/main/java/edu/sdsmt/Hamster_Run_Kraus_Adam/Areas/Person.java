@@ -1,23 +1,15 @@
 package edu.sdsmt.Hamster_Run_Kraus_Adam.Areas;
 
-public class Person extends Tube {
-    @Override
-    public void move() {
+import edu.sdsmt.Hamster_Run_Kraus_Adam.Game;
 
+public class Person implements GameArea {
+    @Override
+    public void pickup(Game g) {
+        g.loseGame();
     }
 
     @Override
-    public void enter() {
-
-    }
-
-    @Override
-    public void pickup() {
-
-    }
-
-    @Override
-    public void exit() {
+    public void enter(Game g) {
 
     }
 }

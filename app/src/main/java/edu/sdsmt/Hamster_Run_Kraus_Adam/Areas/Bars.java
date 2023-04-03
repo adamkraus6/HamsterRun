@@ -1,23 +1,16 @@
 package edu.sdsmt.Hamster_Run_Kraus_Adam.Areas;
 
-public class Bars extends Tube {
+import edu.sdsmt.Hamster_Run_Kraus_Adam.Game;
+
+public class Bars implements GameArea {
     @Override
-    public void move() {
-
-    }
-
-    @Override
-    public void enter() {
-
-    }
+    public void pickup(Game g) {}
 
     @Override
-    public void pickup() {
-
-    }
-
-    @Override
-    public void exit() {
-
+    public void enter(Game g) {
+        if(g.getFood() > 5) {
+            // set to 5 food
+            g.addFood(5-g.getFood());
+        }
     }
 }

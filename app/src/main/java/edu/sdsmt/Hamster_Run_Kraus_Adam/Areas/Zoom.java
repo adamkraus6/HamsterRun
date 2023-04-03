@@ -1,23 +1,15 @@
 package edu.sdsmt.Hamster_Run_Kraus_Adam.Areas;
 
-public class Zoom extends Tube {
-    @Override
-    public void move() {
+import edu.sdsmt.Hamster_Run_Kraus_Adam.Game;
 
+public class Zoom implements GameArea {
+    @Override
+    public void pickup(Game g) {
+        g.addZoom();
     }
 
     @Override
-    public void enter() {
-
-    }
-
-    @Override
-    public void pickup() {
-
-    }
-
-    @Override
-    public void exit() {
+    public void enter(Game g) {
 
     }
 }
