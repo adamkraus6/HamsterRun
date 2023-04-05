@@ -134,6 +134,7 @@ public class Game {
         pos.y = ny;
 
         gameArea[pos.x][pos.y].enter(this);
+        pickup();
     }
 
     public void pickup() {
@@ -157,6 +158,4 @@ public class Game {
         if(stores >= 30)
             won = true;
     }
-
-
 }

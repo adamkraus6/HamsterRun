@@ -7,4 +7,9 @@
     <string name="zoom">Zoom</string>
     <string name="up">U</string>
     <string name="right">R</string>
+    <string name="foodText">Food in Pouches:</string>
+    <string name="zoomText">Zoom Power:</string>
+    <string name="energyText">Energy:</string>
+    <string name="moveText">Moves:</string>
+    <string name="homeFoodText">Home Stores:</string>
 </resources>
