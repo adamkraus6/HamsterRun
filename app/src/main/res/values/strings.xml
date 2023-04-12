@@ -12,4 +12,5 @@
     <string name="energyText">Energy:</string>
     <string name="moveText">Moves:</string>
     <string name="homeFoodText">Home Stores:</string>
+    <string name="defaultNum">0</string>
 </resources>

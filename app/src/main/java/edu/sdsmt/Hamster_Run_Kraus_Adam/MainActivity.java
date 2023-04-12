@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
 
         // save state
+        // private static final STRING TEST = "test";
         // savedInstanceState.putInt(TEST, testVal);
     }
 
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
 
         // restore state
+        // testVal = savedInstanceState.getInt(TEST);
     }
 
     public Game getGame() {
@@ -73,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
 
         TextView zoom = findViewById(R.id.zoom);
         zoom.setText(Integer.toString(g.getZoomsLeft()));
+
+        Button zoomBtn = findViewById(R.id.zoomBtn);
+        zoomBtn.setEnabled(g.getZoomsLeft() > 0);
 
         TextView energy = findViewById(R.id.energy);
         energy.setText(Integer.toString(g.getEnergy()));

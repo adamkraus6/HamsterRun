@@ -19,6 +19,8 @@ public class Game {
     private boolean won;
     private GameArea[][] gameArea;
 
+    public static final int GRID_SIZE = 5;
+
     public Game() {
         reset();
     }
@@ -38,10 +40,10 @@ public class Game {
     }
 
     public void setGameArea() {
-        gameArea = new GameArea[5][5];
+        gameArea = new GameArea[GRID_SIZE][GRID_SIZE];
 
-        for(int i = 0; i < 5; i++) {
-            for(int j = 0; j < 5; j++) {
+        for(int i = 0; i < GRID_SIZE; i++) {
+            for(int j = 0; j < GRID_SIZE; j++) {
                 gameArea[i][j] = new Tube();
             }
         }
@@ -122,7 +124,7 @@ public class Game {
         int nx = ox + dx, ny = oy + dy;
 
         // moves outside of game area
-        if(nx < 0 || nx > 4 || ny < 0 || ny > 4) return;
+        if(nx < 0 || nx > GRID_SIZE-1 || ny < 0 || ny > GRID_SIZE-1) return;
 
         // use energy and increment moves;
         energy--;
