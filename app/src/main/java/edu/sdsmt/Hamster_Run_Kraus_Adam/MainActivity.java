@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
         TextView stores = findViewById(R.id.stores);
         stores.setText(Integer.toString(g.getHomeStores()));
+
+        GameView gv = findViewById(R.id.gameView);
+        gv.invalidate();
     }
 
     public void eat(View v) {
