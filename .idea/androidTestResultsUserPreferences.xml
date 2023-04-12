@@ -9,9 +9,12 @@
               <option name="preferredColumnWidths">
                 <map>
                   <entry key="Duration" value="90" />
+                  <entry key="R52R90HKD0T" value="120" />
                   <entry key="RFCT80XM4LX" value="120" />
                   <entry key="Tests" value="360" />
+                  <entry key="samsung" value="120" />
                   <entry key="samsung&#10; SM-F936U" value="120" />
+                  <entry key="samsung&#10; SM-P610" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>

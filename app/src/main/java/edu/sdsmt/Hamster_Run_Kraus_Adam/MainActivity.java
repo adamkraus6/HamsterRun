@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     public MainActivity() {
         g = new Game();
-        sm = new StateMachine();
+        sm = new StateMachine(g);
     }
 
     @Override

@@ -20,6 +20,10 @@ public class Game {
     private GameArea[][] gameArea;
 
     public static final int GRID_SIZE = 5;
+    public static final int MAX_FOOD = 20;
+    public static final int START_ENERGY = 10;
+    public static final int MAX_ENERGY = 15;
+    public static final int WIN_STORES = 30;
 
     public Game() {
         reset();
@@ -28,7 +32,7 @@ public class Game {
     public void reset() {
         // set initial values
         moves = 0;
-        energy = 10;
+        energy = START_ENERGY;
         food = 0;
         stores = 0;
         zoom = 0;
@@ -101,7 +105,7 @@ public class Game {
 
     public void addFood(int food) {
         this.food += food;
-        this.food = Math.min(this.food, 20);
+        this.food = Math.min(this.food, MAX_FOOD);
     }
 
     public Position getPlayerLocation() {
@@ -114,7 +118,7 @@ public class Game {
         food--;
 
         // add 5, max of 15
-        energy = Math.min(15, energy+5);
+        energy = Math.min(MAX_ENERGY, energy+5);
     }
 
     public void move(int dx, int dy) {
@@ -157,7 +161,7 @@ public class Game {
 
     public void storeFood(int toStore) {
         stores += toStore;
-        if(stores >= 30)
+        if(stores >= WIN_STORES)
             won = true;
     }
 }
