@@ -1,6 +1,6 @@
 package edu.sdsmt.Hamster_Run_Kraus_Adam.States;
 
-public class BaseHamster implements State {
+public class BaseHamster extends State {
     @Override
     public void endTask() {
 
@@ -13,6 +13,6 @@ public class BaseHamster implements State {
 
     @Override
     public String getStateName() {
-        return null;
+        return this.getClass().getName();
     }
 }
