@@ -1,5 +1,6 @@
 package edu.sdsmt.Hamster_Run_Kraus_Adam;
 
+import edu.sdsmt.Hamster_Run_Kraus_Adam.Areas.Barrier;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.Areas.Bars;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.Areas.Food;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.Areas.GameArea;
@@ -18,7 +19,6 @@ public class Game {
     private boolean lost;
     private boolean won;
     private GameArea[][] gameArea;
-
     public static final int GRID_SIZE = 5;
     public static final int MAX_FOOD = 20;
     public static final int START_ENERGY = 10;
@@ -69,13 +69,19 @@ public class Game {
         gameArea[3][0] = new Food(10);
 
         // bars at (2, 0), (3, 3), (4, 3), (2, 4)
-        gameArea[2][0] = new Bars();
+        // gameArea[2][0] = new Bars();
         gameArea[3][3] = new Bars();
-        gameArea[4][3] = new Bars();
-        gameArea[2][4] = new Bars();
+        // gameArea[4][3] = new Bars();
+        // gameArea[2][4] = new Bars();
 
         // home at (4, 4)
         gameArea[4][4] = new Home();
+
+        // barriers at (2, 0), (2, 4), (4, 3)
+        // these take place of 3 bar locations
+        gameArea[2][0] = new Barrier();
+        gameArea[2][4] = new Barrier();
+        gameArea[4][3] = new Barrier();
     }
 
     public int getZoomsLeft() {
@@ -130,11 +136,14 @@ public class Game {
         // moves outside of game area
         if(nx < 0 || nx > GRID_SIZE-1 || ny < 0 || ny > GRID_SIZE-1) return;
 
+        // extension: check if barrier
+        if(gameArea[nx][ny] instanceof Barrier) return;
+
         // use energy and increment moves;
         energy--;
+        moves++;
         if(energy < 0)
             lost = true;
-        moves++;
 
         pos.x = nx;
         pos.y = ny;
@@ -163,5 +172,29 @@ public class Game {
         stores += toStore;
         if(stores >= WIN_STORES)
             won = true;
+    }
+
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
+
+    public void setFood(int food) {
+        this.food = food;
+    }
+
+    public void setZoom(int zoom) {
+        this.zoom = zoom;
+    }
+
+    public void setMoves(int moves) {
+        this.moves = moves;
+    }
+
+    public void setHomeStores(int stores) {
+        this.stores = stores;
+    }
+
+    public void setPosition(Position pos) {
+        this.pos = pos;
     }
 }

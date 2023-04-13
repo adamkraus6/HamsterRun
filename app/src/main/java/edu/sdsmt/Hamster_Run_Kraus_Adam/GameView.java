@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -16,12 +18,16 @@ public class GameView extends View {
     private Bitmap hamsterImage;
     private Paint hamsterPaint;
     private Paint gridPaint;
+    private Paint gridBackPaint;
     private Paint tubePaint;
     private Paint foodPaint;
     private Paint zoomPaint;
     private Paint personPaint;
     private Paint barPaint;
     private Paint homePaint;
+    private Paint barrierPaint;
+    public static final int LOC_INC = 5;
+    private int hamsterTint;
 
     public GameView(Context context) {
         super(context);
@@ -53,11 +59,14 @@ public class GameView extends View {
         gridPaint.setColor(Color.BLUE);
         gridPaint.setStrokeWidth(5);
 
+        gridBackPaint = new Paint();
+        gridBackPaint.setColor(Color.LTGRAY);
+
         tubePaint = new Paint();
         tubePaint.setColor(Color.BLUE);
 
         foodPaint = new Paint();
-        foodPaint.setColor(Color.CYAN);
+        foodPaint.setColor(Color.rgb(150, 75, 0));
 
         zoomPaint = new Paint();
         zoomPaint.setColor(Color.MAGENTA);
@@ -71,14 +80,22 @@ public class GameView extends View {
         homePaint = new Paint();
         homePaint.setColor(Color.GREEN);
 
+        barrierPaint = new Paint();
+        barrierPaint.setColor(Color.BLACK);
+
         g = ((MainActivity)getContext()).getGame();
+
+        hamsterTint = Color.WHITE;
     }
 
     public void onDraw(Canvas c) {
-        // draw grid
         float size = (float)Math.max(getWidth(), getHeight());
         float offset = size/(Game.GRID_SIZE);
 
+        // grid background
+        c.drawRect(0, 0, size, size, gridBackPaint);
+
+        // draw grid
         for(int i = 0; i <= Game.GRID_SIZE; i++) {
             c.drawLine(0, i*offset, size, i*offset, gridPaint);
             c.drawLine(i*offset, 0, i*offset, size, gridPaint);
@@ -92,22 +109,26 @@ public class GameView extends View {
         }
 
         // draw specific location circles
-        drawCircle(c, 2, 3,5,  personPaint);
+        drawCircle(c, 2, 3, LOC_INC,  personPaint);
 
-        drawCircle(c, 0, 4, 5, zoomPaint);
-        drawCircle(c, 2, 1, 5, zoomPaint);
+        drawCircle(c, 0, 4, LOC_INC, zoomPaint);
+        drawCircle(c, 2, 1, LOC_INC, zoomPaint);
 
-        drawCircle(c, 0, 1, 5, foodPaint);
-        drawCircle(c, 0, 3, 5, foodPaint);
-        drawCircle(c, 2, 2, 5, foodPaint);
-        drawCircle(c, 3, 0, 5, foodPaint);
+        drawCircle(c, 0, 1, LOC_INC, foodPaint);
+        drawCircle(c, 0, 3, LOC_INC, foodPaint);
+        drawCircle(c, 2, 2, LOC_INC, foodPaint);
+        drawCircle(c, 3, 0, LOC_INC, foodPaint);
 
-        drawCircle(c, 2, 0, 5, barPaint);
-        drawCircle(c, 3, 3, 5, barPaint);
-        drawCircle(c, 4, 3, 5, barPaint);
-        drawCircle(c, 2, 4, 5, barPaint);
+        // drawCircle(c, 2, 0, LOC_INC, barPaint);
+        drawCircle(c, 3, 3, LOC_INC, barPaint);
+        // drawCircle(c, 4, 3, LOC_INC, barPaint);
+        // drawCircle(c, 2, 4, LOC_INC, barPaint);
 
-        drawCircle(c, 4, 4, 5, homePaint);
+        drawCircle(c, 4, 4, LOC_INC, homePaint);
+
+        drawCircle(c, 2, 0, LOC_INC, barrierPaint);
+        drawCircle(c, 2, 4, LOC_INC, barrierPaint);
+        drawCircle(c, 4, 3, LOC_INC, barrierPaint);
 
         // draw hamster
         drawHamster(c);
@@ -122,6 +143,15 @@ public class GameView extends View {
         float r = (offset/2)-30+incR;
 
         c.drawCircle(x, y, r, p);
+    }
+
+    public void tintHamster(int color) {
+        hamsterTint = color;
+        hamsterPaint.setColorFilter(new PorterDuffColorFilter(hamsterTint, PorterDuff.Mode.MULTIPLY));
+    }
+
+    public int getHamsterTint() {
+        return hamsterTint;
     }
 
     private void drawHamster(Canvas c) {

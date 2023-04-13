@@ -17,4 +17,9 @@ public class HeavyHamster extends State {
     public void startTask() {
 
     }
+
+    @Override
+    public void doTask(double delta) {
+
+    }
 }

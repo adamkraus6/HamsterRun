@@ -13,4 +13,8 @@
     <string name="moveText">Moves:</string>
     <string name="homeFoodText">Home Stores:</string>
     <string name="defaultNum">0</string>
+    <string name="tintBlue">Tint Hamster Blue</string>
+    <string name="tintGreen">Tint Hamster Green</string>
+    <string name="tintRed">Tint Hamster Red</string>
+    <string name="openTints">Open Hamster Tint Menu</string>
 </resources>

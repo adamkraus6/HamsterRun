@@ -180,6 +180,61 @@
         app:layout_constraintEnd_toStartOf="@+id/leftBtn"
         app:layout_constraintStart_toEndOf="@+id/food"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintDimensionRatio="W,1:1" />
+        app:layout_constraintDimensionRatio="WH,1:1" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/tintFloatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        android:onClick="openTints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resetBtn"
+        app:srcCompat="@android:drawable/arrow_down_float"
+        android:contentDescription="@string/openTints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/tintRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        android:onClick="tintRed"
+        app:backgroundTint="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tintFloatButton"
+        app:srcCompat="@android:drawable/btn_star"
+        android:contentDescription="@string/tintRed" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/tintGreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        android:onClick="tintGreen"
+        app:backgroundTint="#4CAF50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tintRed"
+        app:srcCompat="@android:drawable/btn_star"
+        android:contentDescription="@string/tintGreen" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/tintBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        android:onClick="tintBlue"
+        app:backgroundTint="#2196F3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tintGreen"
+        app:srcCompat="@android:drawable/btn_star"
+        android:contentDescription="@string/tintBlue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
