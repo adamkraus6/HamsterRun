@@ -15,6 +15,7 @@ public class Game {
     private int food;
     private int stores;
     private int zoom;
+    private int zoomMove;
     private int energy_to_move;
     private Position pos;
     private boolean lost;
@@ -37,6 +38,7 @@ public class Game {
         food = 0;
         stores = 0;
         zoom = 0;
+        zoomMove = 0;
         energy_to_move = 1;
         pos = new Position();
         lost = false;
@@ -99,8 +101,7 @@ public class Game {
     }
 
     public void addZoom() {
-        if(zoom == 0)
-            zoom = 1;
+        zoom++;
     }
 
     public int getHomeStores() {
@@ -144,7 +145,7 @@ public class Game {
         // use energy and increment moves;
         energy -= energy_to_move;
         moves++;
-        if(energy == 0)
+        if(energy < 0)
             lost = true;
 
         pos.x = nx;
@@ -183,8 +184,12 @@ public class Game {
         this.food = food;
     }
 
-    public void setZoom(int zoom) {
-        this.zoom = zoom;
+    public void setZoomMove(int zoomMove) {
+        this.zoomMove = zoomMove;
+    }
+
+    public int getZoomMove() {
+        return zoomMove;
     }
 
     public void setMoves(int moves) {
@@ -201,5 +206,9 @@ public class Game {
 
     public void setEnergyToMove(int energy) {
         this.energy_to_move = energy;
+    }
+
+    public void removeZoom() {
+        zoom--;
     }
 }

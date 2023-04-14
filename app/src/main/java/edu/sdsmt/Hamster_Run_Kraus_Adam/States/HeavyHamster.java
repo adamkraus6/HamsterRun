@@ -22,10 +22,10 @@ public class HeavyHamster extends State {
     public void doTask() {
         g.pickup();
 
-//        if(g.isWon() || g.isLost()) {
-//            sm.setState(StateMachine.StateEnum.EndedGame);
-//            return;
-//        }
+        if(g.isWon() || g.isLost()) {
+            sm.setState(StateMachine.StateEnum.EndedGame);
+            return;
+        }
 
         if(g.getFood() < 15) {
             sm.setState(StateMachine.StateEnum.BaseHamster);

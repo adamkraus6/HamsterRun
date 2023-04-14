@@ -15,20 +15,25 @@ public class ZoomingHamster extends State {
 
     @Override
     public void startTask() {
-        // set zoomMove = 2
+        g.setEnergyToMove(2);
+        g.setZoomMove(2);
     }
 
     @Override
     public void doTask() {
         // no pickup
 
-        // if win or lose
-            // change to ended
+        if(g.isWon() || g.isLost()) {
+            sm.setState(StateMachine.StateEnum.EndedGame);
+            return;
+        }
 
-        // if 0 zoomMove
-            // if food >= 15
-                // change to heavy
-            // else
-                // change to base
+        if(g.getZoomMove() < 0) {
+            if(g.getFood() >= 15) {
+                sm.setState(StateMachine.StateEnum.HeavyHamster);
+            } else {
+                sm.setState(StateMachine.StateEnum.BaseHamster);
+            }
+        }
     }
 }

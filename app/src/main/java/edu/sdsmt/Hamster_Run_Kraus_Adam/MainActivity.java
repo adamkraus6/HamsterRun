@@ -27,9 +27,9 @@
  *
  * Tier 3a: State Machine/Event Rules
  * DONE a. Framework there
- * ____ b. Base to heavy*
- * ____ c. Heavy to zoom*
- * ____ d. Base to zoom*
+ * DONE b. Base to heavy*
+ * DONE c. Heavy to zoom*
+ * DONE d. Base to zoom*
  * DONE e. Caught*
  * DONE f. No energy*
  * DONE g. Win*
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         int food = savedInstanceState.getInt(FOOD_VAL);
         g.setFood(food);
         int zoom = savedInstanceState.getInt(ZOOM_VAL);
-        g.setZoom(zoom);
+        if(zoom == 0) g.addZoom();
         int moves = savedInstanceState.getInt(MOVE_VAL);
         g.setMoves(moves);
         int stores = savedInstanceState.getInt(STORES_VAL);
@@ -161,21 +161,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void moveUp(View v) {
         g.move(0, -1);
+        g.setZoomMove(g.getZoomMove()-1);
         updateUI();
     }
 
     public void moveDown(View v) {
         g.move(0, 1);
+        g.setZoomMove(g.getZoomMove()-1);
         updateUI();
     }
 
     public void moveLeft(View v) {
         g.move(-1, 0);
+        g.setZoomMove(g.getZoomMove()-1);
         updateUI();
     }
 
     public void moveRight(View v) {
         g.move(1, 0);
+        g.setZoomMove(g.getZoomMove()-1);
         updateUI();
     }
 
@@ -227,7 +231,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void activateZoom(View v) {
-        // TODO
+        sm.setState(StateMachine.StateEnum.ZoomingHamster);
+        g.addFood(-2);
+        g.removeZoom();
+        updateUI();
     }
 
     public void openTints(View v) {
