@@ -15,6 +15,7 @@ public class HeavyHamster extends State {
 
     @Override
     public void startTask() {
+        // GRADING: ENERGY
         g.setEnergyToMove(2);
     }
 
@@ -26,10 +27,6 @@ public class HeavyHamster extends State {
             sm.setState(StateMachine.StateEnum.EndedGame);
             return;
         }
-
-//        if(g.getZoomMove() > 1) {
-//            sm.setState(StateMachine.StateEnum.ZoomingHamster);
-//        }
 
         if(g.getFood() < 15) {
             sm.setState(StateMachine.StateEnum.BaseHamster);

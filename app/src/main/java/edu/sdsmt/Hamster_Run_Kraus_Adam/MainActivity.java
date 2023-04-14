@@ -56,6 +56,12 @@
  * The zoom button is disabled if the hamster does not have any zoom power ups
  * Extension 3: 5b 5 points Floating action button rotation
  * The open/close state of the floating action buttons is saved on rotation
+ * 
+ * TODO:
+ * Email about
+ * 1. checklist
+ * 2. test_win fails with dialog
+ * 3. base_to_heavy_and_back fails unless eat click added
  */
 package edu.sdsmt.Hamster_Run_Kraus_Adam;
 
@@ -87,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
     public MainActivity() {
         g = new Game();
-        sm = new StateMachine(g);
+        sm = new StateMachine(g, this);
         sm.setState(StateMachine.StateEnum.BaseHamster);
     }
 

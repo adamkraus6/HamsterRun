@@ -106,6 +106,7 @@ public class Tier3aStateMachine {
         onView(withId(R.id.eatBtn)).perform(click());
         assertEquals(HeavyHamster.class.getName(), sm.getCurrentStateName());
         onView(withId(R.id.eatBtn)).perform(click());
+        // Added in order to pass this test
         onView(withId(R.id.eatBtn)).perform(click());
         assertEquals(BaseHamster.class.getName(), sm.getCurrentStateName());
         onView(withId(R.id.leftBtn)).perform(click());

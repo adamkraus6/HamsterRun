@@ -11,12 +11,13 @@ public class StateMachine {
     private StateEnum currentState = StateEnum.BaseHamster;
     private State[] states = null;
 
-    public StateMachine(Game g) {
+    public StateMachine(Game g, MainActivity context) {
         states = new State[] {
                 new BaseHamster(g, this),
                 new HeavyHamster(g, this),
                 new ZoomingHamster(g, this),
-                new EndedGame(g, this)
+                // give EndedGame context for dialog box
+                new EndedGame(g, this, context)
         };
     }
 

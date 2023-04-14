@@ -15,7 +15,9 @@ public class ZoomingHamster extends State {
 
     @Override
     public void startTask() {
+        // GRADING: ENERGY
         g.setEnergyToMove(2);
+
         g.setZoomMove(2);
     }
 
