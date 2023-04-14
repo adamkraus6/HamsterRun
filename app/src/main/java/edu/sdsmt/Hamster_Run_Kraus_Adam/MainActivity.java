@@ -9,9 +9,11 @@
  * 1. checklist
  * 2. test_win fails with dialog
  * 3. base_to_heavy_and_back fails unless eat click added
+ * 4.
  */
 package edu.sdsmt.Hamster_Run_Kraus_Adam;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
@@ -23,10 +25,10 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
-    private Game g;
+    private final Game g;
     private GameView gv;
     private FloatingActionButton redT, greenT, blueT;
-    private StateMachine sm;
+    private final StateMachine sm;
     private boolean showTints = false;
     private static final String ENERGY_VAL = "energy";
     private static final String FOOD_VAL = "food";
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
 
         // save state
