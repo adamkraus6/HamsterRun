@@ -3,59 +3,6 @@
  * Adam Kraus
  * GUI - CSC468
  * Due: 4/27/2023
- *
- * Tier 1: Model
- * DONE a. Move test
- * DONE b. Food test
- * DONE c. Eat test
- * DONE d. Home test
- * DONE e. Zoom pickup test
- * DONE f. Bar test
- * DONE g. Caught test
- * DONE h. No energy test
- * DONE i. Win test
- *
- * Tier 2: Connect Views
- * DONE a. All views present test
- * DONE b. Starting values test pass
- * DONE c. Move test
- * DONE d. Food test
- * DONE e. Eat test
- * DONE f. Bar test
- * DONE g. Home test
- * DONE h. Reset test
- *
- * Tier 3a: State Machine/Event Rules
- * DONE a. Framework there
- * DONE b. Base to heavy*
- * DONE c. Heavy to zoom*
- * DONE d. Base to zoom*
- * DONE e. Caught*
- * DONE f. No energy*
- * DONE g. Win*
- * ____ h. Reset on close***
- *
- * Tier 3b: Floating Action
- * DONE a. All buttons there
- * DONE b. Icons set and distinguishable
- * DONE c. Opens/closes properly
- * DONE d. Hamster color updated
- *
- * Tier 3c: Layout
- * DONE a. Custom view's aspect ratio constant
- * DONE b. Relative size of objects in view maintained
- * DONE c. Works in required screen sizes
- *
- * Tier 3d: Rotation
- * DONE a. Required state saved on rotation
- *
- * Extensions:
- * Extension 1: 2i 20 points Barrier areas
- * There are three barrier areas at (2, 0), (2, 4), and (4, 3) that cannot be entered
- * Extension 2: 5a 5 points Disable zoom button
- * The zoom button is disabled if the hamster does not have any zoom power ups
- * Extension 3: 5b 5 points Floating action button rotation
- * The open/close state of the floating action buttons is saved on rotation
  * 
  * TODO:
  * Email about
