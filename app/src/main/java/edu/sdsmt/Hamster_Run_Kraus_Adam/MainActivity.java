@@ -9,7 +9,6 @@
  * 1. checklist
  * 2. test_win fails with dialog
  * 3. base_to_heavy_and_back fails unless eat click added
- * 4.
  */
 package edu.sdsmt.Hamster_Run_Kraus_Adam;
 
