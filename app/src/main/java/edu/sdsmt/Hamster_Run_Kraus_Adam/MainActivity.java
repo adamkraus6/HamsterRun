@@ -142,22 +142,22 @@ public class MainActivity extends AppCompatActivity {
 
         // update views
         TextView food = findViewById(R.id.food);
-        food.setText(Integer.toString(g.getFood()));
+        food.setText(String.format("%s", g.getFood()));
 
         TextView zoom = findViewById(R.id.zoom);
-        zoom.setText(Integer.toString(g.getZoomsLeft()));
+        zoom.setText(String.format("%s", g.getZoomsLeft()));
 
         Button zoomBtn = findViewById(R.id.zoomBtn);
         zoomBtn.setEnabled(g.getZoomsLeft() > 0);
 
         TextView energy = findViewById(R.id.energy);
-        energy.setText(Integer.toString(g.getEnergy()));
+        energy.setText(String.format("%s", g.getEnergy()));
 
         TextView moves = findViewById(R.id.moves);
-        moves.setText(Integer.toString(g.getMoves()));
+        moves.setText(String.format("%s", g.getMoves()));
 
         TextView stores = findViewById(R.id.stores);
-        stores.setText(Integer.toString(g.getHomeStores()));
+        stores.setText(String.format("%s", g.getHomeStores()));
 
         if(showTints) {
             redT.show();
