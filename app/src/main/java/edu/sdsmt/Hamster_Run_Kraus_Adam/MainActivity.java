@@ -32,7 +32,7 @@
  * ____ d. Base to zoom*
  * DONE e. Caught*
  * DONE f. No energy*
- * ____ g. Win*
+ * DONE g. Win*
  * ____ h. Reset on close***
  *
  * Tier 3b: Floating Action
