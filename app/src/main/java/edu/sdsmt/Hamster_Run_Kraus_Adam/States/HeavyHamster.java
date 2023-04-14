@@ -27,6 +27,10 @@ public class HeavyHamster extends State {
             return;
         }
 
+//        if(g.getZoomMove() > 1) {
+//            sm.setState(StateMachine.StateEnum.ZoomingHamster);
+//        }
+
         if(g.getFood() < 15) {
             sm.setState(StateMachine.StateEnum.BaseHamster);
             return;

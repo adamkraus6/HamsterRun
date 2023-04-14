@@ -232,6 +232,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void activateZoom(View v) {
         sm.setState(StateMachine.StateEnum.ZoomingHamster);
+//        g.setZoomMove(2);
         g.addFood(-2);
         g.removeZoom();
         updateUI();
