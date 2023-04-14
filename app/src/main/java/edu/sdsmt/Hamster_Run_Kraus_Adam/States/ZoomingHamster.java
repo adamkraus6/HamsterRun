@@ -15,11 +15,20 @@ public class ZoomingHamster extends State {
 
     @Override
     public void startTask() {
-
+        // set zoomMove = 2
     }
 
     @Override
-    public void doTask(double delta) {
+    public void doTask() {
+        // no pickup
 
+        // if win or lose
+            // change to ended
+
+        // if 0 zoomMove
+            // if food >= 15
+                // change to heavy
+            // else
+                // change to base
     }
 }

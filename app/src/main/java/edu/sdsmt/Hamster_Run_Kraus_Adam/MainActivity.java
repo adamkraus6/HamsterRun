@@ -26,12 +26,12 @@
  * DONE h. Reset test
  *
  * Tier 3a: State Machine/Event Rules
- * ____ a. Framework there
+ * DONE a. Framework there
  * ____ b. Base to heavy*
  * ____ c. Heavy to zoom*
  * ____ d. Base to zoom*
- * ____ e. Caught*
- * ____ f. No energy*
+ * DONE e. Caught*
+ * DONE f. No energy*
  * ____ g. Win*
  * ____ h. Reset on close***
  *
@@ -54,6 +54,8 @@
  * There are three barrier areas at (2, 0), (2, 4), and (4, 3) that cannot be entered
  * Extension 2: 5a 5 points Disable zoom button
  * The zoom button is disabled if the hamster does not have any zoom power ups
+ * Extension 3: 5b 5 points Floating action button rotation
+ * The open/close state of the floating action buttons is saved on rotation
  */
 package edu.sdsmt.Hamster_Run_Kraus_Adam;
 
@@ -81,10 +83,12 @@ public class MainActivity extends AppCompatActivity {
     private static final String POS_X_VAL = "pos_x";
     private static final String POS_Y_VAL = "pos_y";
     private static final String HAM_TINT_VAL = "tint";
+    private static final String FLOAT_VAL = "float";
 
     public MainActivity() {
         g = new Game();
         sm = new StateMachine(g);
+        sm.setState(StateMachine.StateEnum.BaseHamster);
     }
 
     @Override
@@ -115,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putInt(POS_X_VAL, pos.x);
         savedInstanceState.putInt(POS_Y_VAL, pos.y);
         savedInstanceState.putInt(HAM_TINT_VAL, gv.getHamsterTint());
+        savedInstanceState.putBoolean(FLOAT_VAL, showTints);
     }
 
     @Override
@@ -140,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
 
         int tint = savedInstanceState.getInt(HAM_TINT_VAL);
         gv.tintHamster(tint);
+
+        showTints = savedInstanceState.getBoolean(FLOAT_VAL);
 
         updateUI();
     }
@@ -173,6 +180,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateUI() {
+        // notify state machine
+        sm.onUpdate();
+
+        // update views
         TextView food = findViewById(R.id.food);
         food.setText(Integer.toString(g.getFood()));
 
@@ -213,6 +224,10 @@ public class MainActivity extends AppCompatActivity {
         g.reset();
         gv.tintHamster(Color.WHITE);
         updateUI();
+    }
+
+    public void activateZoom(View v) {
+        // TODO
     }
 
     public void openTints(View v) {

@@ -15,11 +15,13 @@ public class EndedGame extends State {
 
     @Override
     public void startTask() {
-
+        // determine if win or lose
+        // open dialog
+        // g.reset();
     }
 
     @Override
-    public void doTask(double delta) {
-
+    public void doTask() {
+        // change to base
     }
 }

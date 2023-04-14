@@ -15,6 +15,7 @@ public class Game {
     private int food;
     private int stores;
     private int zoom;
+    private int energy_to_move;
     private Position pos;
     private boolean lost;
     private boolean won;
@@ -23,7 +24,7 @@ public class Game {
     public static final int MAX_FOOD = 20;
     public static final int START_ENERGY = 10;
     public static final int MAX_ENERGY = 15;
-    public static final int WIN_STORES = 30;
+    public static final int WIN_STORES = 15;
 
     public Game() {
         reset();
@@ -36,6 +37,7 @@ public class Game {
         food = 0;
         stores = 0;
         zoom = 0;
+        energy_to_move = 1;
         pos = new Position();
         lost = false;
         won = false;
@@ -140,16 +142,15 @@ public class Game {
         if(gameArea[nx][ny] instanceof Barrier) return;
 
         // use energy and increment moves;
-        energy--;
+        energy -= energy_to_move;
         moves++;
-        if(energy < 0)
+        if(energy == 0)
             lost = true;
 
         pos.x = nx;
         pos.y = ny;
 
         gameArea[pos.x][pos.y].enter(this);
-        pickup();
     }
 
     public void pickup() {
@@ -196,5 +197,9 @@ public class Game {
 
     public void setPosition(Position pos) {
         this.pos = pos;
+    }
+
+    public void setEnergyToMove(int energy) {
+        this.energy_to_move = energy;
     }
 }

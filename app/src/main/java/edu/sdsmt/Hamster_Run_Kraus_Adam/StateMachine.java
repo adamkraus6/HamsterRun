@@ -28,11 +28,15 @@ public class StateMachine {
         states[this.currentState.ordinal()].startTask();
     }
 
+    public void onUpdate() {
+        states[currentState.ordinal()].doTask();
+    }
+
     public StateEnum getState() {
         return currentState;
     }
 
     public String getCurrentStateName() {
-        return currentState.name();
+        return states[currentState.ordinal()].getClass().getName();
     }
 }
