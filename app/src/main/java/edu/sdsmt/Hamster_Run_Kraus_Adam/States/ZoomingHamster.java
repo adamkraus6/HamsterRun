@@ -3,16 +3,25 @@ package edu.sdsmt.Hamster_Run_Kraus_Adam.States;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.Game;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.StateMachine;
 
+/**
+ * Zooming hamster state class
+ */
 public class ZoomingHamster extends State {
     public ZoomingHamster(Game g, StateMachine sm) {
         super(g, sm);
     }
 
+    /**
+     * End of current state
+     */
     @Override
     public void endTask() {
 
     }
 
+    /**
+     * Beginning of current state
+     */
     @Override
     public void startTask() {
         // GRADING: ENERGY
@@ -21,6 +30,9 @@ public class ZoomingHamster extends State {
         g.setZoomMove(2);
     }
 
+    /**
+     * Update event for state
+     */
     @Override
     public void doTask() {
         // no pickup

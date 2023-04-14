@@ -9,7 +9,15 @@ import edu.sdsmt.Hamster_Run_Kraus_Adam.Areas.Person;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.Areas.Tube;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.Areas.Zoom;
 
+/**
+ * Game object lcass
+ */
 public class Game {
+    public static final int GRID_SIZE = 5;
+    public static final int MAX_FOOD = 20;
+    public static final int START_ENERGY = 10;
+    public static final int MAX_ENERGY = 15;
+    public static final int WIN_STORES = 15;
     private int moves;
     private int energy;
     private int food;
@@ -21,16 +29,14 @@ public class Game {
     private boolean lost;
     private boolean won;
     private GameArea[][] gameArea;
-    public static final int GRID_SIZE = 5;
-    public static final int MAX_FOOD = 20;
-    public static final int START_ENERGY = 10;
-    public static final int MAX_ENERGY = 15;
-    public static final int WIN_STORES = 15;
 
     public Game() {
         reset();
     }
 
+    /**
+     * Sets game variables to initial values
+     */
     public void reset() {
         // set initial values
         moves = 0;
@@ -47,6 +53,9 @@ public class Game {
         setGameArea();
     }
 
+    /**
+     * Sets the game area locations
+     */
     public void setGameArea() {
         gameArea = new GameArea[GRID_SIZE][GRID_SIZE];
 
@@ -88,39 +97,105 @@ public class Game {
         gameArea[4][3] = new Barrier();
     }
 
+    /**
+     * Gets zoom powerups left
+     * @return zoom powers
+     */
     public int getZoomsLeft() {
         return zoom;
     }
 
+    /**
+     * Gets number of moves
+     * @return moves
+     */
     public int getMoves() {
         return moves;
     }
 
+    /**
+     * Sets the number of moves
+     * @param moves new move number
+     */
+    public void setMoves(int moves) {
+        this.moves = moves;
+    }
+
+    /**
+     * Gets energy left
+     * @return energy
+     */
     public int getEnergy() {
         return energy;
     }
 
+    /**
+     * Sets energy left
+     * @param energy new energy number
+     */
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
+
+    /**
+     * Adds 1 zoom powerup
+     */
     public void addZoom() {
         zoom++;
     }
 
+    /**
+     * Gets number of food in home stores
+     * @return stores
+     */
     public int getHomeStores() {
         return stores;
     }
 
+    /**
+     * Sets the food in home stores
+     * @param stores food in stores
+     */
+    public void setHomeStores(int stores) {
+        this.stores = stores;
+    }
+
+    /**
+     * Gets food in pouches
+     * @return food
+     */
     public int getFood() {
         return food;
     }
 
+    /**
+     * Sets food in pouches
+     * @param food new food number
+     */
+    public void setFood(int food) {
+        this.food = food;
+    }
+
+    /**
+     * Adds food to pouches
+     * @param food food to add
+     */
     public void addFood(int food) {
         this.food += food;
         this.food = Math.min(this.food, MAX_FOOD);
     }
 
+    /**
+     * Gets current location
+     * @return position
+     */
     public Position getPlayerLocation() {
         return pos;
     }
 
+    /**
+     * Eats food and gains energy
+     */
     public void eat() {
         // no food to eat
         if(food == 0) return;
@@ -130,6 +205,11 @@ public class Game {
         energy = Math.min(MAX_ENERGY, energy+5);
     }
 
+    /**
+     * Move to new location
+     * @param dx change in x position
+     * @param dy change in y position
+     */
     public void move(int dx, int dy) {
         // original position
         int ox = pos.x, oy = pos.y;
@@ -154,60 +234,81 @@ public class Game {
         gameArea[pos.x][pos.y].enter(this);
     }
 
+    /**
+     * Pickup at current location
+     */
     public void pickup() {
         gameArea[pos.x][pos.y].pickup(this);
     }
 
+    /**
+     * Sets lost to true
+     */
     public void loseGame() {
         lost = true;
     }
 
+    /**
+     * Check if game is lost
+     * @return lost
+     */
     public boolean isLost() {
         return lost;
     }
 
+    /**
+     * Check if game is won
+     * @return won
+     */
     public boolean isWon() {
         return won;
     }
 
+    /**
+     * Adds food to home stores
+     * @param toStore
+     */
     public void storeFood(int toStore) {
         stores += toStore;
         if(stores >= WIN_STORES)
             won = true;
     }
 
-    public void setEnergy(int energy) {
-        this.energy = energy;
-    }
-
-    public void setFood(int food) {
-        this.food = food;
-    }
-
-    public void setZoomMove(int zoomMove) {
-        this.zoomMove = zoomMove;
-    }
-
+    /**
+     * Gets number of zoom moves left
+     * @return zoom moves
+     */
     public int getZoomMove() {
         return zoomMove;
     }
 
-    public void setMoves(int moves) {
-        this.moves = moves;
+    /**
+     * Sets number of zoom moves
+     * @param zoomMove new zoom moves
+     */
+    public void setZoomMove(int zoomMove) {
+        this.zoomMove = zoomMove;
     }
 
-    public void setHomeStores(int stores) {
-        this.stores = stores;
-    }
-
+    /**
+     * Sets new hamster location
+     * @param pos new location
+     */
     public void setPosition(Position pos) {
         this.pos = pos;
     }
 
+    /**
+     * Sets the energy needed to move
+     * @param energy new energy to move
+     */
     public void setEnergyToMove(int energy) {
         this.energy_to_move = energy;
     }
 
+    /**
+     * Removes a zoom powerup
+     */
     public void removeZoom() {
         zoom--;
     }

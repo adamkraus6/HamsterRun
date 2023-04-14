@@ -6,11 +6,12 @@ import edu.sdsmt.Hamster_Run_Kraus_Adam.States.HeavyHamster;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.States.State;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.States.ZoomingHamster;
 
+/**
+ * State machine class
+ */
 public class StateMachine {
-    public enum StateEnum {BaseHamster, HeavyHamster, ZoomingHamster, EndedGame}
     private StateEnum currentState = StateEnum.BaseHamster;
     private State[] states = null;
-
     public StateMachine(Game g, MainActivity context) {
         states = new State[] {
                 new BaseHamster(g, this),
@@ -21,6 +22,25 @@ public class StateMachine {
         };
     }
 
+    /**
+     * Update event for current state
+     */
+    public void onUpdate() {
+        states[currentState.ordinal()].doTask();
+    }
+
+    /**
+     * Gets current state
+     * @return state enum
+     */
+    public StateEnum getState() {
+        return currentState;
+    }
+
+    /**
+     * Sets new state
+     * @param state new state enum
+     */
     public void setState(StateEnum state) {
         states[this.currentState.ordinal()].endTask();
 
@@ -29,15 +49,13 @@ public class StateMachine {
         states[this.currentState.ordinal()].startTask();
     }
 
-    public void onUpdate() {
-        states[currentState.ordinal()].doTask();
-    }
-
-    public StateEnum getState() {
-        return currentState;
-    }
-
+    /**
+     * Gets current state name
+     * @return state name
+     */
     public String getCurrentStateName() {
         return states[currentState.ordinal()].getClass().getName();
     }
+
+    public enum StateEnum {BaseHamster, HeavyHamster, ZoomingHamster, EndedGame}
 }

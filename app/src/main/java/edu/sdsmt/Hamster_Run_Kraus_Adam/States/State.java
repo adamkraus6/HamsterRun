@@ -3,6 +3,9 @@ package edu.sdsmt.Hamster_Run_Kraus_Adam.States;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.Game;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.StateMachine;
 
+/**
+ * Abstract state class
+ */
 public abstract class State {
     protected Game g;
     protected StateMachine sm;

@@ -13,7 +13,11 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+/**
+ * Custom game view
+ */
 public class GameView extends View {
+    public static final int LOC_INC = 5;
     private Game g;
     private Bitmap hamsterImage;
     private Paint hamsterPaint;
@@ -26,7 +30,6 @@ public class GameView extends View {
     private Paint barPaint;
     private Paint homePaint;
     private Paint barrierPaint;
-    public static final int LOC_INC = 5;
     private int hamsterTint;
 
     public GameView(Context context) {
@@ -34,21 +37,10 @@ public class GameView extends View {
         init(context);
     }
 
-    public GameView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        init(context);
-    }
-
-    public GameView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(context);
-    }
-
-    public GameView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init(context);
-    }
-
+    /**
+     * Creates paint objects, images, and tint
+     * @param context
+     */
     public void init(Context context) {
         // hamster image for drawing
         hamsterImage = BitmapFactory.decodeResource(getResources(), R.drawable.hamster);
@@ -88,6 +80,25 @@ public class GameView extends View {
         hamsterTint = Color.WHITE;
     }
 
+    public GameView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        init(context);
+    }
+
+    public GameView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context);
+    }
+
+    public GameView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        init(context);
+    }
+
+    /**
+     * Draws game area
+     * @param c canvas
+     */
     public void onDraw(Canvas c) {
         float size = (float)Math.max(getWidth(), getHeight());
         float offset = size/(Game.GRID_SIZE);
@@ -134,6 +145,14 @@ public class GameView extends View {
         drawHamster(c);
     }
 
+    /**
+     * Draws a circle
+     * @param c canvas
+     * @param posX game grid x position
+     * @param posY game grid y position
+     * @param incR increase to circle radius
+     * @param p paint for circle color
+     */
     private void drawCircle(Canvas c, int posX, int posY, int incR, Paint p) {
         float size = (float)Math.max(getWidth(), getHeight());
         float offset = size/(Game.GRID_SIZE);
@@ -145,15 +164,10 @@ public class GameView extends View {
         c.drawCircle(x, y, r, p);
     }
 
-    public void tintHamster(int color) {
-        hamsterTint = color;
-        hamsterPaint.setColorFilter(new PorterDuffColorFilter(hamsterTint, PorterDuff.Mode.MULTIPLY));
-    }
-
-    public int getHamsterTint() {
-        return hamsterTint;
-    }
-
+    /**
+     * Draws hamster
+     * @param c canvas
+     */
     private void drawHamster(Canvas c) {
         float size = (float)Math.max(getWidth(), getHeight());
         size = size * 0.15f;
@@ -174,5 +188,22 @@ public class GameView extends View {
         c.scale(scaleFactor, scaleFactor);
         c.drawBitmap(hamsterImage, 0, 0, hamsterPaint);
         c.restore();
+    }
+
+    /**
+     * Tints the hamster color
+     * @param color tint color
+     */
+    public void tintHamster(int color) {
+        hamsterTint = color;
+        hamsterPaint.setColorFilter(new PorterDuffColorFilter(hamsterTint, PorterDuff.Mode.MULTIPLY));
+    }
+
+    /**
+     * Gets current hamster tint color
+     * @return tint color
+     */
+    public int getHamsterTint() {
+        return hamsterTint;
     }
 }
