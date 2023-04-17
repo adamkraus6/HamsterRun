@@ -6,7 +6,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,9 +18,6 @@ import org.junit.runner.RunWith;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-import edu.sdsmt.Hamster_Run_Kraus_Adam.Game;
-import edu.sdsmt.Hamster_Run_Kraus_Adam.MainActivity;
-import edu.sdsmt.Hamster_Run_Kraus_Adam.StateMachine;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.States.BaseHamster;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.States.EndedGame;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.States.HeavyHamster;
@@ -86,14 +82,14 @@ public class Tier3aStateMachine {
         onView(withId(R.id.rightBtn)).perform(click());
         onView(withId(R.id.rightBtn)).perform(click());
         onView(withId(R.id.downBtn)).perform(click());
-        onView(withId(R.id.leftBtn)).perform(click());
+        onView(withId(R.id.leftbtn)).perform(click());
         onView(withId(R.id.rightBtn)).perform(click());
         String t= HeavyHamster.class.getName();
         String t2 = sm.getCurrentStateName();
         assertEquals(HeavyHamster.class.getName(), sm.getCurrentStateName());
 
         //check energy levels
-        onView(withId(R.id.leftBtn)).perform(click());
+        onView(withId(R.id.leftbtn)).perform(click());
         assertEquals(2, g.getEnergy());
         onView(withId(R.id.rightBtn)).perform(click());
         assertEquals(0, g.getEnergy());
@@ -101,7 +97,7 @@ public class Tier3aStateMachine {
         //move back to base
         onView(withId(R.id.eatBtn)).perform(click());
         assertEquals(5, g.getEnergy());
-        onView(withId(R.id.leftBtn)).perform(click());
+        onView(withId(R.id.leftbtn)).perform(click());
         assertEquals(3, g.getEnergy());
         onView(withId(R.id.eatBtn)).perform(click());
         onView(withId(R.id.eatBtn)).perform(click());
@@ -110,7 +106,7 @@ public class Tier3aStateMachine {
         assertEquals(HeavyHamster.class.getName(), sm.getCurrentStateName());
         onView(withId(R.id.eatBtn)).perform(click());
         assertEquals(BaseHamster.class.getName(), sm.getCurrentStateName());
-        onView(withId(R.id.leftBtn)).perform(click());
+        onView(withId(R.id.leftbtn)).perform(click());
         assertEquals(14, g.getEnergy());
 
         check_number_match();
@@ -122,8 +118,8 @@ public class Tier3aStateMachine {
         onView(withId(R.id.downBtn)).perform(click());
         onView(withId(R.id.rightBtn)).perform(click());
         onView(withId(R.id.rightBtn)).perform(click());
-        onView(withId(R.id.leftBtn)).perform(click());
-        onView(withId(R.id.leftBtn)).perform(click());
+        onView(withId(R.id.leftbtn)).perform(click());
+        onView(withId(R.id.leftbtn)).perform(click());
         onView(withId(R.id.downBtn)).perform(click());
         onView(withId(R.id.downBtn)).perform(click());
         onView(withId(R.id.downBtn)).perform(click());
@@ -163,9 +159,9 @@ public class Tier3aStateMachine {
         onView( withId(R.id.rightBtn)).perform(click());
         onView(withId(R.id.rightBtn)).perform(click());
         onView(withId(R.id.downBtn)).perform(click());
-        onView(withId(R.id.leftBtn)).perform(click());
+        onView(withId(R.id.leftbtn)).perform(click());
         onView( withId(R.id.rightBtn)).perform(click());
-        onView(withId(R.id.leftBtn)).perform(click());
+        onView(withId(R.id.leftbtn)).perform(click());
         onView(withId(R.id.eatBtn)).perform(click());
         onView(withId(R.id.eatBtn)).perform(click());
         onView(withId(R.id.rightBtn)).perform(click());
@@ -173,7 +169,7 @@ public class Tier3aStateMachine {
 
         onView(withId(R.id.zoomBtn)).perform(click());
         assertEquals(ZoomingHamster.class.getName(), sm.getCurrentStateName());
-        onView(withId(R.id.leftBtn)).perform(click());
+        onView(withId(R.id.leftbtn)).perform(click());
         onView(withId(R.id.upBtn)).perform(click());
         onView(withId(R.id.upBtn)).perform(click());
         assertEquals(HeavyHamster.class.getName(), sm.getCurrentStateName());
@@ -204,7 +200,7 @@ public class Tier3aStateMachine {
             resetBtnAtom.set(act.findViewById(R.id.resetBtn));
             upBtnAtom.set(act.findViewById(R.id.upBtn));
             downBtnAtom.set(act.findViewById(R.id.downBtn));
-            leftBtnAtom.set(act.findViewById(R.id.leftBtn));
+            leftBtnAtom.set(act.findViewById(R.id.leftbtn));
             rightBtnAtom.set(act.findViewById(R.id.rightBtn));
 
             zoomAtom.set(act.findViewById(R.id.zoom));
@@ -255,7 +251,7 @@ public class Tier3aStateMachine {
             if(right)
                 onView(withId(R.id.rightBtn)).perform(click());
             else
-                onView(withId(R.id.leftBtn)).perform(click());
+                onView(withId(R.id.leftbtn)).perform(click());
             right = !right;
         }
 
@@ -285,7 +281,7 @@ public class Tier3aStateMachine {
             onView(withId(R.id.downBtn)).perform(click());
             onView(withId(R.id.rightBtn)).perform(click());
 
-            onView(withId(R.id.leftBtn)).perform(click());
+            onView(withId(R.id.leftbtn)).perform(click());
             onView(withId(R.id.upBtn)).perform(click());
             onView(withId(R.id.upBtn)).perform(click());
             onView(withId(R.id.upBtn)).perform(click());

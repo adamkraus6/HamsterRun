@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/leftBtn"
+        android:id="@+id/leftbtn"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:onClick="moveLeft"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:onClick="moveUp"
         android:text="@string/up"
-        app:layout_constraintBottom_toTopOf="@+id/leftBtn"
+        app:layout_constraintBottom_toTopOf="@+id/leftbtn"
         app:layout_constraintEnd_toStartOf="@+id/rightBtn" />
 
     <Button
@@ -178,7 +178,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/leftBtn"
+        app:layout_constraintEnd_toStartOf="@+id/leftbtn"
         app:layout_constraintStart_toEndOf="@+id/food"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintDimensionRatio="WH,1:1" />
