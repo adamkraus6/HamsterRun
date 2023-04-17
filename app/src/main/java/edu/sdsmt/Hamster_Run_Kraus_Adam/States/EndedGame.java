@@ -40,7 +40,7 @@ public class EndedGame extends State {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this.context);
         builder.setMessage(msg);
-        builder.setPositiveButton("Ok", new ResetClick());
+        builder.setPositiveButton("Reset", new ResetClick());
 
         // GRADING: DIALOG
         builder.create().show();
