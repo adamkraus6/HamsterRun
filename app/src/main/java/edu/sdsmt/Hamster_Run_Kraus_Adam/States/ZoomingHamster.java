@@ -34,7 +34,7 @@ public class ZoomingHamster extends State {
      * Update event for state
      */
     @Override
-    public void doTask() {
+    public void doTask(boolean moved) {
         // no pickup
 
         if(g.isWon() || g.isLost()) {

@@ -51,7 +51,7 @@ public class EndedGame extends State {
      * Update event for state
      */
     @Override
-    public void doTask() {
+    public void doTask(boolean moved) {
     }
 
     /**

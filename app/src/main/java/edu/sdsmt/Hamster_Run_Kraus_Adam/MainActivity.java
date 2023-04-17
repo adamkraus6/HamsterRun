@@ -4,11 +4,71 @@
  * GUI - CSC468
  * Due: 4/27/2023
  * 
- * TODO:
- * Email about
- * 1. checklist
- * 2. test_win fails with dialog
- * 3. base_to_heavy_and_back fails unless eat click added
+ * Complete the following checklist. If you partially completed an item, put a note how it can be
+ * checked for what is working for partial credit.
+ *
+ * DONE Followed the class OOP diagram
+ * DONE *Grading tags completed
+ *
+ *
+ * Tier 1: Model		50
+ * 	Move test 			DONE
+ * 	Food test			DONE
+ * 	Eat test 			DONE
+ * 	Home test 			DONE
+ * 	Zoom pickup test	DONE
+ * 	Bar test 			DONE
+ * 	Caught test 		DONE
+ * 	No energy test		DONE
+ * 	Win test 			DONE
+ *
+ * Tier 2: Connect Views		22
+ * 	All views present test	 	DONE
+ * 	Starting values test pass	DONE
+ * 	Move test 	 				DONE
+ * 	Food test	 				DONE
+ * 	Eat test  					DONE
+ * 	Bar test	 				DONE
+ * 	Home test	 				DONE
+ * 	Reset test	 				DONE
+ *
+ * Tier 3a: State Machine/Event Rules	34
+ * 	Framework there	 			DONE
+ * 	Base to heavy*	 			DONE
+ * 	Heavy to zoom* 				DONE
+ * 	Base to zoom* 				DONE
+ * 	Caught*	 					DONE
+ * 	No energy*	 				DONE
+ * 	Win*	 					DONE
+ * 	Reset on close ***	 		DONE
+ *
+ * Tier 3b: Floating Action	 		DONE
+ * 	All buttons there 		 		DONE
+ * 	Icons set and distinguishable	DONE
+ * 	Opens/closes properly 	 		DONE
+ * 	Tribble color updated.	 		DONE
+ *
+ * Tier 3c: Layout **	26
+ * 	Custom’s View’s aspect ratio constant			DONE
+ * 	Relative size of objects in view maintained 	DONE
+ * 	Works in required screen sizes 	 				DONE
+ *
+ *
+ * Tier 3d: Rotation		20
+ * 	Required state saved on rotation 	 		DONE
+ *
+ * Tier 4: Extensions		30
+ * Extension 1: 2i 20pts Barrier areas:
+ * There are three barrier areas that cannot be entered. They are located at (2, 0), (2, 4),
+ * and (4, 3)
+ * Extension 2: 5a 5pts Disabled zoom button:
+ * The zoom button is disabled if there are no zoom powers available.
+ * Extension 3: 5b 5pts Saved Floating Action Button State:
+ * The state of the floating action buttons to tint the hamster is saved on rotation.
+ *
+ * The grade you compute is the starting point for course staff, who reserve the right to change
+ * the grade if they disagree with your assessment and to deduct points for other issues they may
+ * encounter, such as errors in the submission process, naming issues, etc.
  */
 package edu.sdsmt.Hamster_Run_Kraus_Adam;
 
@@ -63,15 +123,15 @@ public class MainActivity extends AppCompatActivity {
         greenT = findViewById(R.id.tintGreen);
         blueT = findViewById(R.id.tintBlue);
 
-        updateUI();
+        updateUI(false);
     }
 
     /**
      * Updates view with current game information
      */
-    public void updateUI() {
+    public void updateUI(boolean moved) {
         // notify state machine
-        sm.onUpdate();
+        sm.onUpdate(moved);
 
         // update views
         TextView food = findViewById(R.id.food);
@@ -156,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
 
         showTints = savedInstanceState.getBoolean(FLOAT_VAL);
 
-        updateUI();
+        updateUI(false);
     }
 
     /**
@@ -182,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
     public void moveUp(View v) {
         g.move(0, -1);
         g.setZoomMove(g.getZoomMove()-1);
-        updateUI();
+        updateUI(true);
     }
 
     /**
@@ -192,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
     public void moveDown(View v) {
         g.move(0, 1);
         g.setZoomMove(g.getZoomMove()-1);
-        updateUI();
+        updateUI(true);
     }
 
     /**
@@ -202,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
     public void moveLeft(View v) {
         g.move(-1, 0);
         g.setZoomMove(g.getZoomMove()-1);
-        updateUI();
+        updateUI(true);
     }
 
     /**
@@ -212,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
     public void moveRight(View v) {
         g.move(1, 0);
         g.setZoomMove(g.getZoomMove()-1);
-        updateUI();
+        updateUI(true);
     }
 
     /**
@@ -221,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void eat(View v) {
         g.eat();
-        updateUI();
+        updateUI(false);
     }
 
     /**
@@ -231,7 +291,7 @@ public class MainActivity extends AppCompatActivity {
     public void reset(View v) {
         g.reset();
         gv.tintHamster(Color.WHITE);
-        updateUI();
+        updateUI(false);
     }
 
     /**
@@ -242,7 +302,7 @@ public class MainActivity extends AppCompatActivity {
         g.setZoomMove(2);
         g.addFood(-2);
         g.removeZoom();
-        updateUI();
+        updateUI(false);
     }
 
     /**
@@ -251,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void openTints(View v) {
         showTints = !showTints;
-        updateUI();
+        updateUI(false);
     }
 
     /**
@@ -260,7 +320,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void tintRed(View v) {
         gv.tintHamster(Color.RED);
-        updateUI();
+        updateUI(false);
     }
 
     /**
@@ -269,7 +329,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void tintGreen(View v) {
         gv.tintHamster(Color.GREEN);
-        updateUI();
+        updateUI(false);
     }
 
     /**
@@ -278,6 +338,6 @@ public class MainActivity extends AppCompatActivity {
      */
     public void tintBlue(View v) {
         gv.tintHamster(Color.BLUE);
-        updateUI();
+        updateUI(false);
     }
 }

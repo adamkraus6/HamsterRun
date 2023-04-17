@@ -32,8 +32,8 @@ public class BaseHamster extends State {
      * Update event for state
      */
     @Override
-    public void doTask() {
-        g.pickup();
+    public void doTask(boolean moved) {
+        if(moved) g.pickup();
 
         if(g.isWon() || g.isLost()) {
             sm.setState(StateMachine.StateEnum.EndedGame);

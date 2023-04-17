@@ -25,8 +25,8 @@ public class StateMachine {
     /**
      * Update event for current state
      */
-    public void onUpdate() {
-        states[currentState.ordinal()].doTask();
+    public void onUpdate(boolean moved) {
+        states[currentState.ordinal()].doTask(moved);
     }
 
     /**

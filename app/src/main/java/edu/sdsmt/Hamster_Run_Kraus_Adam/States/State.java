@@ -16,5 +16,5 @@ public abstract class State {
     }
     public abstract void endTask();
     public abstract void startTask();
-    public abstract void doTask();
+    public abstract void doTask(boolean moved);
 }

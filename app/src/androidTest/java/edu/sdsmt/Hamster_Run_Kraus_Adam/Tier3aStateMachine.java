@@ -19,6 +19,9 @@ import org.junit.runner.RunWith;
 
 import java.util.concurrent.atomic.AtomicReference;
 
+import edu.sdsmt.Hamster_Run_Kraus_Adam.Game;
+import edu.sdsmt.Hamster_Run_Kraus_Adam.MainActivity;
+import edu.sdsmt.Hamster_Run_Kraus_Adam.StateMachine;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.States.BaseHamster;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.States.EndedGame;
 import edu.sdsmt.Hamster_Run_Kraus_Adam.States.HeavyHamster;
@@ -105,8 +108,6 @@ public class Tier3aStateMachine {
         onView(withId(R.id.eatBtn)).perform(click());
         onView(withId(R.id.eatBtn)).perform(click());
         assertEquals(HeavyHamster.class.getName(), sm.getCurrentStateName());
-        onView(withId(R.id.eatBtn)).perform(click());
-        // Added in order to pass this test
         onView(withId(R.id.eatBtn)).perform(click());
         assertEquals(BaseHamster.class.getName(), sm.getCurrentStateName());
         onView(withId(R.id.leftBtn)).perform(click());
