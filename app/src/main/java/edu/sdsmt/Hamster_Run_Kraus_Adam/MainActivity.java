@@ -127,7 +127,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Updates view with current game information
+     * Updates views and notifies state machine of update
+     * @param moved true if hamster moved
      */
     public void updateUI(boolean moved) {
         // notify state machine

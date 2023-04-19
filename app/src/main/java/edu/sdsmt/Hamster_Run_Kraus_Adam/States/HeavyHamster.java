@@ -30,9 +30,12 @@ public class HeavyHamster extends State {
 
     /**
      * Update event for state
+     * @param moved true if hamster moved
      */
     @Override
     public void doTask(boolean moved) {
+        // only pickup when moving
+        // ignores updates from other button clicks
         if(moved) g.pickup();
 
         if(g.isWon() || g.isLost()) {

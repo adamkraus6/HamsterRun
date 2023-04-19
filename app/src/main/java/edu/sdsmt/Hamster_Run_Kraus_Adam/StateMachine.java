@@ -24,6 +24,7 @@ public class StateMachine {
 
     /**
      * Update event for current state
+     * @param moved true if hamster moved
      */
     public void onUpdate(boolean moved) {
         states[currentState.ordinal()].doTask(moved);

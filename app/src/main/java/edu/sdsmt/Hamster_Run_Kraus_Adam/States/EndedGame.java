@@ -49,6 +49,7 @@ public class EndedGame extends State {
 
     /**
      * Update event for state
+     * @param moved true if hamster moved
      */
     @Override
     public void doTask(boolean moved) {
