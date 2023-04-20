@@ -11,7 +11,7 @@ import edu.sdsmt.Hamster_Run_Kraus_Adam.States.ZoomingHamster;
  */
 public class StateMachine {
     private StateEnum currentState = StateEnum.BaseHamster;
-    private State[] states = null;
+    private State[] states;
     public StateMachine(Game g, MainActivity context) {
         states = new State[] {
                 new BaseHamster(g, this),
@@ -28,14 +28,6 @@ public class StateMachine {
      */
     public void onUpdate(boolean moved) {
         states[currentState.ordinal()].doTask(moved);
-    }
-
-    /**
-     * Gets current state
-     * @return state enum
-     */
-    public StateEnum getState() {
-        return currentState;
     }
 
     /**
