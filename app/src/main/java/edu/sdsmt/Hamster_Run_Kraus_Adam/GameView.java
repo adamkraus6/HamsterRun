@@ -130,10 +130,7 @@ public class GameView extends View {
         drawCircle(c, 2, 2, LOC_INC, foodPaint);
         drawCircle(c, 3, 0, LOC_INC, foodPaint);
 
-        // drawCircle(c, 2, 0, LOC_INC, barPaint);
         drawCircle(c, 3, 3, LOC_INC, barPaint);
-        // drawCircle(c, 4, 3, LOC_INC, barPaint);
-        // drawCircle(c, 2, 4, LOC_INC, barPaint);
 
         drawCircle(c, 4, 4, LOC_INC, homePaint);
 
