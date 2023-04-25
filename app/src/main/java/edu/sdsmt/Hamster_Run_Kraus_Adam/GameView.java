@@ -75,8 +75,6 @@ public class GameView extends View {
         barrierPaint = new Paint();
         barrierPaint.setColor(Color.BLACK);
 
-        g = ((MainActivity)getContext()).getGame();
-
         hamsterTint = Color.WHITE;
     }
 
@@ -166,6 +164,8 @@ public class GameView extends View {
      * @param c canvas
      */
     private void drawHamster(Canvas c) {
+//        if(isInEditMode()) return;
+
         float size = (float)Math.max(getWidth(), getHeight());
         size = size * 0.15f;
 
@@ -174,6 +174,11 @@ public class GameView extends View {
 
         float imageSizeW = hamsterImage.getWidth();
         float imageSizeH = hamsterImage.getHeight();
+        if(isInEditMode()) {
+            g = new Game();
+        } else {
+            g = ((MainActivity)getContext()).getGame();
+        }
         Position loc = g.getPlayerLocation();
         float scaleFactor = size/Math.max(imageSizeW, imageSizeH);
 
